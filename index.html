@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -21,15 +21,30 @@
         alt=""
         class="alura-logo"
       />
-      <img
-        src="https://caelum-online-public.s3.amazonaws.com/assets-imersaodev/Convers%C3%A3o+1.png"
-      />
+     
     </a>
     <div class="content">
-      <div>
-        <label for="fahrenheit">Farenheit to Celcius and Kelvin</label>
-        <input type="number" id="valueFahrenheit" name="fahrenheit" />
+      <div style="display: flex;align-items: center;">
+        <input type="number" id="valueTemperature"><label for="valueTemperature">:</label>
+        <div style="display: flex;gap: 1rem;align-items: center;">
+        <input list="temperatureOpitions" id="valueConvertionOne" placeholder="Farenheit..."/>
+        <datalist id="temperatureOpitions">
+          <option value="kelvin">°K</option>
+          <option value="farenheit">°F</option>
+          <option value="celcius">°C</option>
+        </datalist>
+        
+        <p style="display: inline;">to </p>
+        
+        <input list="temperatureConvertion" id="valueConvertionTwo" placeholder="Celcius..." />
+        <datalist id="temperatureConvertion">
+          <option value="kelvin">°K</option>
+          <option value="farenheit">°F</option>
+          <option value="celcius">°C</option>
+        </datalist>
+        </datalist>
       </div>
+    </div>
       <button onclick="temperatureConverter()">Converter</button>
     </div>
     <p id="resp" class=""></p>
