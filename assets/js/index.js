@@ -1,8 +1,9 @@
 function temperatureConverter() {
   const valueConvertionOne = document.querySelector("#valueConvertionOne").value
   const valueConvertionTwo = document.querySelector("#valueConvertionTwo").value
-  const valueTemperature = document.querySelector("#valueTemperature").value
+  let valueTemperature = document.querySelector("#valueTemperature").value
   // valueTemperature - Como é uma operação de conversão de temperatura não é necessário a validação desse input (valor pode ser NEGATIVO, 0 OU POSITIVO)
+  valueTemperature = Number(valueTemperature)
 
   let isValid = true
   let msg
@@ -30,6 +31,9 @@ function temperatureConverter() {
     resposta = fahrenheitTo(valueConvertionTwo, valueTemperature)
   }
 
+  if (valueConvertionOne == "celsius") {
+    resposta = celciusTo(valueConvertionTwo, valueTemperature)
+  }
   msg = `${resposta}`
   return addOnScreen(isValid, msg)
 }
@@ -40,6 +44,14 @@ function fahrenheitTo(valueConvertionTwo, valueTemperature) {
     return (valueTemperature - 32) / 1.8 + 273.15
   }
   return (valueTemperature - 32) / 1.8
+}
+
+// Função de conversão de Celsius para kelvin ou fahrenheit
+function celciusTo(valueConvertionTwo, valueTemperature) {
+  if (valueConvertionTwo == "kelvin") {
+    return valueTemperature + 273.15
+  }
+  return valueTemperature * 1.8 + 32
 }
 
 // Adiciona Todas as resposta para o usuario e erros
