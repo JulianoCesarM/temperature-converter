@@ -28,42 +28,62 @@ function temperatureConverter() {
   }
 
   if (valueConvertionOne == "fahrenheit") {
-    resposta = fahrenheitTo(valueConvertionTwo, valueTemperature)
+    msg = fahrenheitTo(valueConvertionTwo, valueTemperature)
   }
 
   if (valueConvertionOne == "celsius") {
-    resposta = celciusTo(valueConvertionTwo, valueTemperature)
+    msg = celciusTo(valueConvertionTwo, valueTemperature)
   }
 
   if (valueConvertionOne == "kelvin") {
-    resposta = kelvinTo(valueConvertionTwo, valueTemperature)
+    msg = kelvinTo(valueConvertionTwo, valueTemperature)
   }
 
-  msg = `${resposta}`
   return addOnScreen(isValid, msg)
 }
 
 // Função de conversão de fahrenheit para kelvin ou celsius
 function fahrenheitTo(valueConvertionTwo, valueTemperature) {
+  let calculo
   if (valueConvertionTwo == "kelvin") {
-    return (valueTemperature - 32) / 1.8 + 273.15
+    calculo = (valueTemperature - 32) / 1.8 + 273.15
+    return `Convertendo ${valueTemperature}°F, para Kelvin: ${calculo.toFixed(
+      2
+    )}K!`
   }
-  return (valueTemperature - 32) / 1.8
+  calculo = (valueTemperature - 32) / 1.8
+  return `Convertendo ${valueTemperature}°F, para Celsius: ${calculo.toFixed(
+    2
+  )}°C!`
 }
 
 // Função de conversão de Celsius para kelvin ou fahrenheit
 function celciusTo(valueConvertionTwo, valueTemperature) {
+  let calculo
   if (valueConvertionTwo == "kelvin") {
-    return valueTemperature + 273.15
+    calculo = valueTemperature + 273.15
+    return `Convertendo ${valueTemperature}°C, para Kelvin: ${calculo.toFixed(
+      2
+    )}K!`
   }
-  return valueTemperature * 1.8 + 32
+  calculo = valueTemperature * 1.8 + 32
+  return `Convertendo ${valueTemperature}°C, para Fahrenheit: ${calculo.toFixed(
+    2
+  )}°F!`
 }
 // Função de conversão de Kelvin para celsius ou fahrenheit
 function kelvinTo(valueConvertionTwo, valueTemperature) {
+  let calculo
   if (valueConvertionTwo == "celsius") {
-    return valueTemperature - 273.15
+    calculo = valueTemperature - 273.15
+    return `Convertendo ${valueTemperature}K, para Celsius: ${calculo.toFixed(
+      2
+    )}°C!`
   }
-  return valueTemperature * 1.8 - 459.67
+  calculo = valueTemperature * 1.8 - 459.67
+  return `Convertendo ${valueTemperature}K, para Fahrenheit: ${calculo.toFixed(
+    2
+  )}°F!`
 }
 
 // Adiciona Todas as resposta para o usuario e erros
