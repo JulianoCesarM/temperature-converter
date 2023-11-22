@@ -6,6 +6,7 @@ function temperatureConverter() {
 
   let isValid = true
   let msg
+  let resposta
 
   const regexTemp = /^(fahrenheit|celsius|kelvin)$/i
 
@@ -25,8 +26,20 @@ function temperatureConverter() {
     return addOnScreen(isValid, msg)
   }
 
-  msg = `OI`
-  return addOnScreen(isValid, msg)()
+  if (valueConvertionOne == "fahrenheit") {
+    resposta = fahrenheitTo(valueConvertionTwo, valueTemperature)
+  }
+
+  msg = `${resposta}`
+  return addOnScreen(isValid, msg)
+}
+
+// Função de conversão de fahrenheit para kelvin ou celsius
+function fahrenheitTo(valueConvertionTwo, valueTemperature) {
+  if (valueConvertionTwo == "kelvin") {
+    return (valueTemperature - 32) / 1.8 + 273.15
+  }
+  return (valueTemperature - 32) / 1.8
 }
 
 // Adiciona Todas as resposta para o usuario e erros
