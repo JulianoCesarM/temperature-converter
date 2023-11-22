@@ -34,6 +34,11 @@ function temperatureConverter() {
   if (valueConvertionOne == "celsius") {
     resposta = celciusTo(valueConvertionTwo, valueTemperature)
   }
+
+  if (valueConvertionOne == "kelvin") {
+    resposta = kelvinTo(valueConvertionTwo, valueTemperature)
+  }
+
   msg = `${resposta}`
   return addOnScreen(isValid, msg)
 }
@@ -52,6 +57,13 @@ function celciusTo(valueConvertionTwo, valueTemperature) {
     return valueTemperature + 273.15
   }
   return valueTemperature * 1.8 + 32
+}
+// Função de conversão de Kelvin para celsius ou fahrenheit
+function kelvinTo(valueConvertionTwo, valueTemperature) {
+  if (valueConvertionTwo == "celsius") {
+    return valueTemperature - 273.15
+  }
+  return valueTemperature * 1.8 - 459.67
 }
 
 // Adiciona Todas as resposta para o usuario e erros
