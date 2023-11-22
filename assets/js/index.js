@@ -1,5 +1,21 @@
 function temperatureConverter() {
+  const valueConvertionOne = document.querySelector("#valueConvertionOne").value
+  const valueConvertionTwo = document.querySelector("#valueConvertionTwo").value
+
   let isValid = true
+  let msg
+
+  if (valueConvertionOne === valueConvertionTwo) {
+    isValid = false
+    msg = "Conversão errada! Valores iguais!"
+    return addOnScreen(isValid, msg)
+  }
+
+  if (valueConvertionOne === "" || valueConvertionTwo === "") {
+    isValid = false
+    msg = "Conversão errada! É necessário valor de conversão!"
+    return addOnScreen(isValid, msg)
+  }
 
   msg = `OI`
   return addOnScreen(isValid, msg)()
