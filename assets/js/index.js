@@ -1,9 +1,13 @@
 function temperatureConverter() {
   const valueConvertionOne = document.querySelector("#valueConvertionOne").value
   const valueConvertionTwo = document.querySelector("#valueConvertionTwo").value
+  const valueTemperature = document.querySelector("#valueTemperature").value
+  // valueTemperature - Como é uma operação de conversão de temperatura não é necessário a validação desse input (valor pode ser NEGATIVO, 0 OU POSITIVO)
 
   let isValid = true
   let msg
+
+  const regexTemp = /^(fahrenheit|celsius|kelvin)$/i
 
   if (valueConvertionOne === valueConvertionTwo) {
     isValid = false
@@ -11,9 +15,13 @@ function temperatureConverter() {
     return addOnScreen(isValid, msg)
   }
 
-  if (valueConvertionOne === "" || valueConvertionTwo === "") {
+  if (
+    !regexTemp.test(valueConvertionOne) ||
+    !regexTemp.test(valueConvertionTwo)
+  ) {
     isValid = false
-    msg = "Conversão errada! É necessário valor de conversão!"
+    msg =
+      "Conversão errada! Valores diferentes de Celsius, Kelvin ou fahrenheit!"
     return addOnScreen(isValid, msg)
   }
 
