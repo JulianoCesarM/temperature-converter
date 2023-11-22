@@ -1,7 +1,7 @@
 body {
   font-family: "Roboto Mono", monospace;
   text-align: center;
-  background-image: url("https://caelum-online-public.s3.amazonaws.com/assets-imersaodev/Background.png");
+  background-image: url("/assets/img/bg-temperature.jpg");
   background-color: #000000;
   background-size: cover;
   background-position: center top;
@@ -49,14 +49,14 @@ img {
   margin: 0 auto;
   padding: 20px;
   width: 100%;
-  max-width: 500px;
+  max-width: 410px;
   gap: 1rem;
   font-size: 25px;
   text-align: left;
 
   border-radius: 10px;
-  background-color: #ffffff2a;
-  backdrop-filter: blur(3px);
+  background-color: #ffffff62;
+  backdrop-filter: blur(4px);
 }
 input {
   height: 25px;
@@ -70,12 +70,4 @@ button {
   border: none;
   height: 50px;
   cursor: pointer;
-}
-.resp {
-  background-color: rgb(131, 190, 41);
-  max-width: 500px;
-  margin: 10px auto;
-  color: black;
-  padding: 10px;
-  text-align: left;
 }
