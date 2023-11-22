@@ -7,7 +7,6 @@ function temperatureConverter() {
 
   let isValid = true
   let msg
-  let resposta
 
   const regexTemp = /^(fahrenheit|celsius|kelvin)$/i
 
